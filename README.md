@@ -5,6 +5,8 @@
 
 A tiny (only 128 bytes) connector for **[Storeon]** and Svelte.
 
+<br/><br/><br/><br/>
+
 ---------------------
 [Storeon]: https://github.com/storeon/storeon
 
