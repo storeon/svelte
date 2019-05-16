@@ -4,27 +4,27 @@
  *
  * @return {}
  */
-const bindStoreon = function (store) {
+function bindStoreon (store) {
   /**
    *
    */
   return function (key) {
-    var state = store.get();
-    var subscribers = [];
+    var state = store.get()
+    var subscribers = []
 
-    function subscribe(run) {
-      subscribers.push(run);
+    function subscribe (run) {
+      subscribers.push(run)
       run(state[key])
 
       return function () {
-        var index = subscribers.indexOf(run);
-        if (index !== -1) subscribers.splice(index, 1);
+        var index = subscribers.indexOf(run)
+        if (index !== -1) subscribers.splice(index, 1)
       }
     }
 
-    store.on("@changed", function (_, changed) {
+    store.on('@changed', function (_, changed) {
       if (key in changed) {
-        subscribers.forEach(s => s(changed[key]))
+        subscribers.forEach(function (s) { return s(changed[key]) })
       }
     })
 
@@ -32,8 +32,8 @@ const bindStoreon = function (store) {
       subscribe: subscribe
     }
 
-    return [store.dispatch, changes];
+    return [store.dispatch, changes]
   }
 }
 
-module.exports = { bindStoreon }
+module.exports = { bindStoreon: bindStoreon }
