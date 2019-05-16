@@ -30,8 +30,7 @@ yarn add storeon-svelte
 ## How to use
 
 ```javascript
-import createStore from 'storeon';
-import { bindStoreon } from 'storeon-svelte';
+import { createSvelteStore } from 'storeon-svelte';
 
 let counter = store => {
   // Initial state
@@ -40,9 +39,7 @@ let counter = store => {
   store.on('inc', ({ count }) => ({ count: count + 1 }));
 };
 
-const store = createStore([counter]);
-
-export const connect = bindStoreon(store);
+export const connect = createSvelteStore([counter]);
 ```
 
 ```html

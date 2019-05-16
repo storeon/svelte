@@ -1,4 +1,3 @@
-import createStore from 'storeon';
 import { createSvelteStore } from '..';
 
 let counter = store => {
