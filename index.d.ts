@@ -1,7 +1,7 @@
-import { Store,Dispatch } from 'storeon';
+import { Dispatch } from "storeon";
 
-declare function connect(key: string): [Dispatch, any]
+declare function createSvelteStore<T>(
+  modules: any[]
+): (key: string) => [Dispatch, any];
 
-declare function bindStoreon<T>(store: Store<T>): connect;
-
-export { bindStoreon }
+export { createSvelteStore };
