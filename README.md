@@ -1,8 +1,6 @@
 # Storeon Svelte
 
-<img src="https://storeon.github.io/storeon/logo.svg" align="right"
-
-alt="Storeon logo by Anton Lovchikov" width="160" height="142">
+<img src="https://storeon.github.io/storeon/logo.svg" align="right" alt="Storeon logo by Anton Lovchikov" width="160" height="142">
 
 A tiny (only 128 bytes) connector for [Storeon] and [Svelte].
 
