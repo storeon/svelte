@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/distolma/storeon-svelte.svg?branch=master)](https://travis-ci.com/distolma/storeon-svelte)
+
 # Storeon Svelte
 
 <img src="https://storeon.github.io/storeon/logo.svg" align="right" alt="Storeon logo by Anton Lovchikov" width="160" height="142">
@@ -30,13 +32,13 @@ yarn add storeon-svelte
 ## How to use
 
 ```javascript
-import { createSvelteStore } from 'storeon-svelte';
+import { createSvelteStore } from "storeon-svelte";
 
 let counter = store => {
   // Initial state
-  store.on('@init', () => ({ count: 0 }));
+  store.on("@init", () => ({ count: 0 }));
   // Reducers returns only changed part of the state
-  store.on('inc', ({ count }) => ({ count: count + 1 }));
+  store.on("inc", ({ count }) => ({ count: count + 1 }));
 };
 
 export const connect = createSvelteStore([counter]);
@@ -44,12 +46,12 @@ export const connect = createSvelteStore([counter]);
 
 ```html
 <script>
-  import { connect } from './store.js';
+  import { connect } from "./store.js";
 
-  const [dispatch, count] = connect('count');
+  const [dispatch, count] = connect("count");
 
   function increment() {
-    dispatch('inc');
+    dispatch("inc");
   }
 </script>
 
