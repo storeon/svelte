@@ -10,7 +10,7 @@ var createStore = require('storeon')
  * @return {connect} The store connector.
  *
  * @example
- * import { createSvelteStore } from "storeon-svelte";
+ * import { createSvelteStore } from "@storeon/svelte";
  *
  * let counter = store => {
  *  store.on("@init", () => ({ count: 0 }));

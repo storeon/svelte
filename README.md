@@ -20,19 +20,13 @@ Read more about Storeon [article].
 ## Install
 
 ```sh
-npm install storeon-svelte
-```
-
-or
-
-```sh
-yarn add storeon-svelte
+npm install @storeon/svelte
 ```
 
 ## How to use
 
 ```javascript
-import { createSvelteStore } from "storeon-svelte";
+import { createSvelteStore } from "@storeon/svelte";
 
 let counter = store => {
   // Initial state
