@@ -28,7 +28,6 @@ function createSvelteStore (modules) {
    *
    */
   return function (key) {
-    var state = store.get()
     var subscribers = []
 
     /**
@@ -38,12 +37,15 @@ function createSvelteStore (modules) {
      *
      */
     function subscribe (run) {
+      var state = store.get()
+
       subscribers.push(run)
       run(state[key])
 
       return function () {
-        var index = subscribers.indexOf(run)
-        if (index !== -1) subscribers.splice(index, 1)
+        subscribers = subscribers.filter(function (i) {
+          return i !== run
+        })
       }
     }
 

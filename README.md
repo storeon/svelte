@@ -4,9 +4,9 @@
 
 <img src="https://storeon.github.io/storeon/logo.svg" align="right" alt="Storeon logo by Anton Lovchikov" width="160" height="142">
 
-A tiny (only 298 bytes) connector for [Storeon] and [Svelte]. ([Demo])
+A tiny (only 284 bytes) connector for [Storeon] and [Svelte]. ([Demo])
 
-- 298 bytes (minified and gzipped). It uses [Size Limit] to control size.
+- 284 bytes (minified and gzipped). It uses [Size Limit] to control size.
 - Auto-subscription to the store.
 
 Read more about Storeon [article].
