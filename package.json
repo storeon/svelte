@@ -1,6 +1,7 @@
 {
   "name": "@storeon/svelte",
   "version": "0.2.0",
+  "description": "A tiny connector for Storeon and Svelte",
   "main": "index.js",
   "repository": "https://github.com/distolma/storeon-svelte.git",
   "author": "Dmytro Mostovyi <djmakaron2009@gmail.com>",
@@ -48,12 +49,10 @@
   "browserslist": [
     "last 1 chrome versions"
   ],
-  "size-limit": [
-    {
-      "path": "index.js",
-      "limit": "284 B"
-    }
-  ],
+  "size-limit": [{
+    "path": "index.js",
+    "limit": "284 B"
+  }],
   "eslintConfig": {
     "extends": "@logux/eslint-config/browser"
   }

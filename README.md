@@ -4,10 +4,9 @@
 
 <img src="https://storeon.github.io/storeon/logo.svg" align="right" alt="Storeon logo by Anton Lovchikov" width="160" height="142">
 
-A tiny (only 284 bytes) connector for [Storeon] and [Svelte]. ([Demo])
+A tiny connector for [Storeon] and [Svelte]. ([Demo])
 
-- 284 bytes (minified and gzipped). It uses [Size Limit] to control size.
-- Auto-subscription to the store.
+Size is only 284 bytes (minified and gzipped). It uses [Size Limit] to control size
 
 Read more about Storeon [article].
 
@@ -19,11 +18,17 @@ Read more about Storeon [article].
 
 ## Install
 
+This module includes `storeon` module as a dependency so you don't need to install `storeon` itself
+
 ```sh
 npm install @storeon/svelte
 ```
 
 ## How to use
+
+Use `createSvelteStore` from the `@storeon/svelte` package instead of using `createStore` from the `svelte` package. It accepts the same API as `createStore` function (array of modules)
+
+#### `store.js`
 
 ```javascript
 import { createSvelteStore } from "@storeon/svelte";
@@ -37,6 +42,10 @@ let counter = store => {
 
 export const connect = createSvelteStore([counter]);
 ```
+
+Import `connect` function from our `./store` and use it for getting state and dispatching new events
+
+#### `App.svelte`
 
 ```html
 <script>
