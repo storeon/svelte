@@ -34,13 +34,31 @@ Use `createSvelteStore` from the `@storeon/svelte` package instead of using `cre
 import { createSvelteStore } from "@storeon/svelte";
 
 let counter = store => {
-  // Initial state
   store.on("@init", () => ({ count: 0 }));
-  // Reducers returns only changed part of the state
   store.on("inc", ({ count }) => ({ count: count + 1 }));
 };
 
 export const connect = createSvelteStore([counter]);
+```
+
+Using TypeScript you can pass `State` interface to the `createSvelteStore` function
+
+#### `store.ts`
+
+```typescript
+import { Store } from 'storeon';
+import { createSvelteStore } from "@storeon/svelte";
+
+interface State {
+  count: number;
+}
+
+let counter = (store: Store<State>) => {
+  store.on("@init", () => ({ count: 0 }));
+  store.on("inc", ({ count }) => ({ count: count + 1 }));
+};
+
+export const connect = createSvelteStore<State>([counter]);
 ```
 
 Import `connect` function from our `./store` and use it for getting state and dispatching new events

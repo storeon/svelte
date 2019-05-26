@@ -1,7 +1,7 @@
-import { Dispatch } from "storeon";
+import { Module, Dispatch } from 'storeon';
 
-declare function createSvelteStore<T>(
-  modules: any[]
-): (key: string) => [Dispatch, any];
+interface Changes<State, K extends keyof State> {
+    subscribe: (run: (state: State[K]) => void) => () => void;
+}
 
-export { createSvelteStore };
+export declare function createSvelteStore<State>(modules: Module<State>[]): <K extends keyof State>(key: K) => [Dispatch, Changes<State, K>];

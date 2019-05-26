@@ -4,7 +4,7 @@ npm-debug.log
 yarn-error.log
 yarn.lock
 
-*.spec.js
+*.test.js
 .travis.yml
 
 node_modules/
