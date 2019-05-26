@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.com/distolma/storeon-svelte.svg?branch=master)](https://travis-ci.com/distolma/storeon-svelte)
-
 # Storeon Svelte
 
 <img src="https://storeon.github.io/storeon/logo.svg" align="right" alt="Storeon logo by Anton Lovchikov" width="160" height="142">
@@ -10,7 +8,16 @@ Size is only 284 bytes (minified and gzipped). It uses [Size Limit] to control s
 
 Read more about Storeon [article].
 
+## Why?
+
+[Svelte] is the smallest JS framework, but even so, it contains many built-in features. One of them is a `svelte/store`. But why we need to use a third-party store? `@storeon/svetle` has several advantages compared with the built-in one.
+
+- **Size**. 284 bytes instead of 426 bytes (minified and gzipped).
+- **Ecosystem**. Many additional [tools] can be combined with a store.
+- **Fast**. It tracks what parts of state were changed and re-renders only components based on the changes.
+
 [storeon]: https://github.com/storeon/storeon
+[tools]: https://github.com/storeon/storeon#tools
 [svelte]: https://github.com/sveltejs/svelte
 [size limit]: https://github.com/ai/size-limit
 [demo]: https://codesandbox.io/s/admiring-beaver-edi8m
