@@ -5,3 +5,5 @@ interface Changes<State, K extends keyof State> {
 }
 
 export declare function createSvelteStore<State>(modules: Module<State>[]): <K extends keyof State>(key: K) => [Dispatch, Changes<State, K>];
+
+export { Module, Dispatch, Store } from 'storeon';

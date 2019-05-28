@@ -53,8 +53,7 @@ Using TypeScript you can pass `State` interface to the `createSvelteStore` funct
 #### `store.ts`
 
 ```typescript
-import { Store } from 'storeon';
-import { createSvelteStore } from "@storeon/svelte";
+import { createSvelteStore, Store } from "@storeon/svelte";
 
 interface State {
   count: number;
