@@ -4,7 +4,7 @@
 
 A tiny connector for [Storeon] and [Svelte]. ([Demo])
 
-Size is only 284 bytes (minified and gzipped). It uses [Size Limit] to control size
+Size is only 284 bytes (minified and gzipped). It uses [Size Limit] to control size.
 
 Read more about Storeon [article].
 
@@ -25,7 +25,7 @@ Read more about Storeon [article].
 
 ## Install
 
-This module includes `storeon` module as a dependency so you don't need to install `storeon` itself
+This module includes `storeon` module as a dependency so you don't need to install `storeon` itself:
 
 ```sh
 npm install @storeon/svelte
@@ -33,7 +33,7 @@ npm install @storeon/svelte
 
 ## How to use
 
-Use `createSvelteStore` from the `@storeon/svelte` package instead of using `createStore` from the `svelte` package. It accepts the same API as `createStore` function (array of modules)
+Use `createSvelteStore` from the `@storeon/svelte` package instead of using `createStore` from the `svelte` package. It accepts the same API as `createStore` function (array of modules).
 
 #### `store.js`
 
@@ -48,7 +48,7 @@ let counter = store => {
 export const connect = createSvelteStore([counter]);
 ```
 
-Using TypeScript you can pass `State` interface to the `createSvelteStore` function
+Using TypeScript you can pass `State` interface to the `createSvelteStore` function:
 
 #### `store.ts`
 
@@ -67,7 +67,7 @@ let counter = (store: Store<State>) => {
 export const connect = createSvelteStore<State>([counter]);
 ```
 
-Import `connect` function from our `./store` and use it for getting state and dispatching new events
+Import `connect` function from our `./store` and use it for getting state and dispatching new events:
 
 #### `App.svelte`
 
