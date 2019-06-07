@@ -16,7 +16,7 @@ function connectFactory () {
 it('should start with init value', function () {
   var connect = connectFactory()
 
-  var count = connect('count')[1]
+  var count = connect('count')
 
   count.subscribe(function (value) {
     return expect(value).toBe(0)
@@ -27,9 +27,7 @@ it('should be reactive', function () {
   var connect = connectFactory()
 
   var currentValue
-  var connection = connect('count')
-  var dispatch = connection[0]
-  var count = connection[1]
+  var count = connect('count')
 
   count.subscribe(function (value) {
     currentValue = value
@@ -37,7 +35,7 @@ it('should be reactive', function () {
 
   expect(currentValue).toBe(0)
 
-  dispatch('inc')
+  count.dispatch('inc')
 
   expect(currentValue).toBe(1)
 })
@@ -46,13 +44,11 @@ it('should not emmit changes on other dispatches', function () {
   var connect = connectFactory()
   var spyCb = jest.fn()
 
-  var connection = connect('foo')
-  var dispatch = connection[0]
-  var foo = connection[1]
+  var foo = connect('foo')
 
   foo.subscribe(spyCb)
 
-  dispatch('inc')
+  foo.dispatch('inc')
 
   expect(spyCb).toBeCalledWith('baz')
   expect(spyCb).toBeCalledTimes(1)
@@ -62,9 +58,7 @@ it('shoud to be unsubscribed', function () {
   var connect = connectFactory()
 
   var currentValue
-  var connection = connect('count')
-  var dispatch = connection[0]
-  var count = connection[1]
+  var count = connect('count')
 
   var unsubscribe = count.subscribe(function (value) {
     currentValue = value
@@ -72,13 +66,13 @@ it('shoud to be unsubscribed', function () {
 
   expect(currentValue).toBe(0)
 
-  dispatch('inc')
+  count.dispatch('inc')
 
   expect(currentValue).toBe(1)
 
   unsubscribe()
-  unsubscribe()
-  dispatch('inc')
+
+  count.dispatch('inc')
 
   expect(currentValue).toBe(1)
 })

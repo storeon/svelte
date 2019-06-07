@@ -75,10 +75,10 @@ Import `connect` function from our `./store` and use it for getting state and di
 <script>
   import { connect } from "./store.js";
 
-  const [dispatch, count] = connect("count");
+  const count = connect("count");
 
   function increment() {
-    dispatch("inc");
+    count.dispatch("inc");
   }
 </script>
 

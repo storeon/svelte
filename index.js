@@ -57,11 +57,10 @@ function createSvelteStore (modules) {
       }
     })
 
-    var changes = {
-      subscribe: subscribe
+    return {
+      subscribe: subscribe,
+      dispatch: store.dispatch
     }
-
-    return [store.dispatch, changes]
   }
 }
 

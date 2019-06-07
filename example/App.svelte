@@ -1,14 +1,14 @@
 <script>
   import { connect } from './store.js';
 
-  const [dispatch, count] = connect('count');
+  const count = connect('count');
 
   function increment() {
-    dispatch('inc');
+    count.dispatch('inc');
   }
 
   function decrement() {
-    dispatch('dec');
+    count.dispatch('dec');
   }
 </script>
 
