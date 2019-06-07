@@ -2,6 +2,10 @@
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.3.0
+
+- simplify API ([57d4ba](https://github.com/storeon/svelte/commit/57d4ba1f1d50ef48313ce23cebe2671f49ac813d))
+
 ## 0.2.1
 
 - fix type definition
