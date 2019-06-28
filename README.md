@@ -4,7 +4,7 @@
 
 A tiny connector for [Storeon] and [Svelte]. ([Demo])
 
-Size is only 284 bytes (minified and gzipped). It uses [Size Limit] to control size.
+Size is only 281 bytes (minified and gzipped). It uses [Size Limit] to control size.
 
 Read more about Storeon [article].
 
@@ -12,7 +12,7 @@ Read more about Storeon [article].
 
 [Svelte] is the smallest JS framework, but even so, it contains many built-in features. One of them is a `svelte/store`. But why we need to use a third-party store? `@storeon/svelte` has several advantages compared with the built-in one.
 
-- **Size**. 284 bytes instead of 426 bytes (minified and gzipped).
+- **Size**. 281 bytes instead of 426 bytes (minified and gzipped).
 - **Ecosystem**. Many additional [tools] can be combined with a store.
 - **Fast**. It tracks what parts of state were changed and re-renders only components based on the changes.
 
