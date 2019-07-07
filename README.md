@@ -53,18 +53,28 @@ Using TypeScript you can pass `State` interface to the `createSvelteStore` funct
 #### `store.ts`
 
 ```typescript
-import { createSvelteStore, Store } from "@storeon/svelte";
+import { createSvelteStore, Store, StoreonEvents } from "@storeon/svelte";
 
+// State structure
 interface State {
   count: number;
+}
+
+// Events declaration: map of event names to type of event data
+interface Events extends StoreonEvents<State> {
+  // `inc` event which do not goes with any data
+  'inc': undefined
+  // `set` event which goes with number as data
+  'set': number
 }
 
 let counter = (store: Store<State>) => {
   store.on("@init", () => ({ count: 0 }));
   store.on("inc", ({ count }) => ({ count: count + 1 }));
+  store.on('set', (_, event) => ({ count: event}));
 };
 
-export const connect = createSvelteStore<State>([counter]);
+export const connect = createSvelteStore<State, Events>([counter]);
 ```
 
 Import `connect` function from our `./store` and use it for getting state and dispatching new events:
