@@ -96,3 +96,32 @@ Import `connect` function from our `./store` and use it for getting state and di
 
 <button on:click="{increment}">+</button>
 ```
+
+## Usage with [@storeon/router](https://github.com/storeon/router)
+If you want to use the @storeon/svelte with the [@storeon/router](https://github.com/storeon/router) you should import the `router.createRouter` from [@storeon/router](https://github.com/storeon/router) and add this module to `createSvelteStore` instead of `createStore`
+
+#### `store.js`
+```js
+import { createSvelteStore } from "@storeon/svelte";
+import router from '@storeon/router'
+const connect = createSvelteStore([
+  router.createRouter([
+    ['/', () => ({ page: 'home' })],
+    ['/blog', () => ({ page: 'blog' })],
+  ])
+])
+```
+
+And use it like:
+#### `App.svelte`
+```svelte
+<script>
+  import { connect } from "./store.js";
+  import router from '@storeon/router'
+
+  const moduleRouter = connect(router.key)
+</script>
+
+You can access the router like default svelte store via $:
+{$moduleRouter.match.page}
+```
