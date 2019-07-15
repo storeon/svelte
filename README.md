@@ -118,7 +118,7 @@ And use it like:
 ```svelte
 <script>
   import { connect } from "./store.js";
-  import router from '@storeon/router'
+  import router from "@storeon/router"
 
   const moduleRouter = connect(router.key)
 </script>
