@@ -2,6 +2,9 @@
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.1
+- update dependencies ([0c71ea](https://github.com/storeon/svelte/commit/0c71ea83ce0c1f4a5f206ee5af62b0fc0aff170e))
+
 ## 0.4.0
 - add support for storeon 0.9 ([eeed35](https://github.com/storeon/svelte/commit/eeed35e8f7cad204356d9044ff595535732081ab))
 
