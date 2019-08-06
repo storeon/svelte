@@ -1,11 +1,11 @@
-var createSvelteStore = require('.').createSvelteStore
+let createSvelteStore = require('.').createSvelteStore
 
 function connectFactory () {
   function counter (store) {
-    store.on('@init', function () {
+    store.on('@init', () => {
       return { count: 0, foo: 'baz' }
     })
-    store.on('inc', function (state) {
+    store.on('inc', state => {
       return { count: state.count + 1 }
     })
   }
@@ -13,25 +13,21 @@ function connectFactory () {
   return createSvelteStore([counter])
 }
 
-it('should start with init value', function () {
-  var connect = connectFactory()
+it('should start with init value', () => {
+  let connect = connectFactory()
 
-  var count = connect('count')
+  let count = connect('count')
 
-  count.subscribe(function (value) {
-    return expect(value).toBe(0)
-  })
+  count.subscribe(value => expect(value).toBe(0))
 })
 
-it('should be reactive', function () {
-  var connect = connectFactory()
+it('should be reactive', () => {
+  let connect = connectFactory()
 
-  var currentValue
-  var count = connect('count')
+  let currentValue
+  let count = connect('count')
 
-  count.subscribe(function (value) {
-    currentValue = value
-  })
+  count.subscribe(value => currentValue = value)
 
   expect(currentValue).toBe(0)
 
@@ -40,11 +36,11 @@ it('should be reactive', function () {
   expect(currentValue).toBe(1)
 })
 
-it('should not emmit changes on other dispatches', function () {
-  var connect = connectFactory()
-  var spyCb = jest.fn()
+it('should not emmit changes on other dispatches', () => {
+  let connect = connectFactory()
+  let spyCb = jest.fn()
 
-  var foo = connect('foo')
+  let foo = connect('foo')
 
   foo.subscribe(spyCb)
 
@@ -54,15 +50,13 @@ it('should not emmit changes on other dispatches', function () {
   expect(spyCb).toBeCalledTimes(1)
 })
 
-it('shoud to be unsubscribed', function () {
-  var connect = connectFactory()
+it('shoud to be unsubscribed', () => {
+  let connect = connectFactory()
 
-  var currentValue
-  var count = connect('count')
+  let currentValue
+  let count = connect('count')
 
-  var unsubscribe = count.subscribe(function (value) {
-    currentValue = value
-  })
+  let unsubscribe = count.subscribe(value => currentValue = value)
 
   expect(currentValue).toBe(0)
 
