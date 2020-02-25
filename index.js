@@ -1,4 +1,4 @@
-var createStore = require('storeon')
+let createStore = require('storeon')
 
 /**
  * Initialize new store and apply all modules to the store for Svelte app.
@@ -19,7 +19,7 @@ var createStore = require('storeon')
  * export const connect = createSvelteStore([counter]);
  */
 function createSvelteStore (modules) {
-  var store = createStore(modules)
+  let store = createStore(modules)
 
   /**
    * Hook-like function to use Storeon in Svelte app
@@ -28,7 +28,7 @@ function createSvelteStore (modules) {
    *
    */
   return function (key) {
-    var subscribers = []
+    let subscribers = []
 
     /**
      * Subscription for the state
@@ -37,31 +37,31 @@ function createSvelteStore (modules) {
      *
      */
     function subscribe (run) {
-      var state = store.get()
+      let state = store.get()
 
       subscribers.push(run)
       run(state[key])
 
       return function () {
-        subscribers = subscribers.filter(function (i) {
+        subscribers = subscribers.filter(i => {
           return i !== run
         })
       }
     }
 
-    store.on('@changed', function (_, changed) {
+    store.on('@changed', (_, changed) => {
       if (key in changed) {
-        subscribers.forEach(function (s) {
+        subscribers.forEach(s => {
           s(changed[key])
         })
       }
     })
 
     return {
-      subscribe: subscribe,
+      subscribe,
       dispatch: store.dispatch
     }
   }
 }
 
-module.exports = { createSvelteStore: createSvelteStore }
+module.exports = { createSvelteStore }

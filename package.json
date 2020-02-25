@@ -12,29 +12,30 @@
     "test": "jest --coverage && yarn lint && size-limit"
   },
   "devDependencies": {
-    "@logux/eslint-config": "^35.0.3",
-    "@size-limit/preset-small-lib": "^2.2.4",
+    "@logux/eslint-config": "^36.0.0",
+    "@size-limit/preset-small-lib": "^4.0.2",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-es5": "^1.4.1",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-jest": "^23.2.0",
+    "eslint-plugin-es5": "^1.5.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.8.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prefer-let": "^1.0.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-unicorn": "^15.0.1",
-    "husky": "^3.1.0",
-    "jest": "^24.9.0",
-    "lint-staged": "^9.5.0",
+    "eslint-plugin-unicorn": "^16.1.1",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.7",
     "parcel-bundler": "^1.12.4",
-    "parcel-plugin-svelte": "^4.0.5",
-    "svelte": "^3.16.7",
-    "typescript": "^3.7.4"
+    "parcel-plugin-svelte": "^4.0.6",
+    "size-limit": "^4.0.2",
+    "svelte": "^3.19.1",
+    "typescript": "^3.8.2"
   },
   "dependencies": {
-    "storeon": "^0.9.7"
+    "storeon": "^0.9.8"
   },
   "lint-staged": {
     "*.js": [
@@ -53,11 +54,11 @@
   "size-limit": [
     {
       "path": "index.js",
-      "limit": "282 B"
+      "limit": "293 B"
     }
   ],
   "eslintConfig": {
-    "extends": "@logux/eslint-config/browser"
+    "extends": "@logux/eslint-config"
   },
   "eslintIgnore": [
     "node_modules",
