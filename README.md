@@ -14,7 +14,7 @@ Read more about Storeon [article].
 
 - **Size**. 201 bytes instead of 426 bytes (minified and gzipped).
 - **Ecosystem**. Many additional [tools] can be combined with a store.
-- **Fast**. It tracks what parts of state were changed and re-renders only components based on the changes.
+- **Speed**. It tracks what parts of state were changed and re-renders only components based on the changes.
 
 [storeon]: https://github.com/storeon/storeon
 [tools]: https://github.com/storeon/storeon#tools
@@ -165,9 +165,9 @@ And use it like:
   import { getStore } from "@storeon/svelte";
   import router from "@storeon/router"
 
-  const moduleRouter = getStore(router.key)
+  const { [router.key]: route } = getStore(router.key)
 </script>
 
 You can access the router like default svelte store via $:
-{$moduleRouter.match.page}
+{$route.match.page}
 ```
