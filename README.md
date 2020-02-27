@@ -69,8 +69,8 @@ interface Events extends StoreonEvents<State> {
 }
 
 let counter = (store: Store<State>) => {
-  store.on("@init", () => ({ count: 0 }))
-  store.on("inc", ({ count }) => ({ count: count + 1 }))
+  store.on('@init', () => ({ count: 0 }))
+  store.on('inc', ({ count }) => ({ count: count + 1 }))
   store.on('set', (_, event) => ({ count: event}))
 };
 
@@ -99,35 +99,35 @@ Import `getStore` function from our `@storeon/svelte` module and use it for gett
 
 ```html
 <script>
-  import { getStore } from "@storeon/svelte";
+  import { getStore } from '@storeon/svelte';
 
-  const { count, dispatch } = getStore("count");
+  const { count, dispatch } = getStore('count');
 
   function increment() {
-    dispatch("inc");
+    dispatch('inc');
   }
 </script>
 
 <h1>The count is {$count}</h1>
 
-<button on:click="{increment}">+</button>
+<button on:click={increment}>+</button>
 ```
 Using typescript you can pass `State` and `Events` interfaces to `getStore` function to be full type safe
 ```html
 <script lang="typescript">
-  import { getStore } from "@storeon/svelte";
+  import { getStore } from '@storeon/svelte';
   import { State, Events } from './store'
 
-  const { count, dispatch } = getStore<State, Events>("count");
+  const { count, dispatch } = getStore<State, Events>('count');
 
   function increment() {
-    dispatch("inc");
+    dispatch('inc');
   }
 </script>
 
 <h1>The count is {$count}</h1>
 
-<button on:click="{increment}">+</button>
+<button on:click={increment}>+</button>
 ```
 
 ## Usage with [@storeon/router](https://github.com/storeon/router)
@@ -136,7 +136,7 @@ If you want to use the @storeon/svelte with the `@storeon/router` you should imp
 #### `store.js`
 ```js
 import createStore from 'storeon'
-import { createRouter } from "@storeon/router";
+import { createRouter } from '@storeon/router';
 
 const store = createStore([
   createRouter([
@@ -162,8 +162,8 @@ And use it like:
 #### `Child.svelte`
 ```html
 <script>
-  import { getStore } from "@storeon/svelte";
-  import router from "@storeon/router"
+  import { getStore } from '@storeon/svelte';
+  import router from '@storeon/router'
 
   const { [router.key]: route } = getStore(router.key)
 </script>
