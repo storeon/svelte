@@ -2,6 +2,9 @@
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.0
+- change API: smaller, better DX ([7e77af](https://github.com/storeon/svelte/commit/7e77afd3288d684c341fcbe6453e8ff2dd3985fd))
+
 ## 0.4.1
 - update dependencies ([0c71ea](https://github.com/storeon/svelte/commit/0c71ea83ce0c1f4a5f206ee5af62b0fc0aff170e))
 
