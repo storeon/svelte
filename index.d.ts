@@ -1,10 +1,10 @@
-import { Module, Dispatch, StoreonEvents } from 'storeon';
+import { Store, StoreonEvents, Dispatch } from 'storeon';
 
-interface Changes<State, K extends keyof State, EventsDataTypesMap> {
-  dispatch: Dispatch<EventsDataTypesMap>;
-  subscribe: (run: (state: State[K]) => void) => () => void;
+type Subscribable<State> = {
+  [K in keyof State]: { subscribe: (run: (state: State[K]) => void) => () => void; };
 }
 
-export declare function createSvelteStore<State, EventsDataTypesMap extends StoreonEvents<State> = any>(modules: Module<State>[]): <K extends keyof State>(key: K) => Changes<State, K, EventsDataTypesMap>;
-
-export { Module, Dispatch, Store, StoreonEvents } from 'storeon';
+export declare function setStore(store: Store): void
+export declare function getStore<State, EventsMap extends StoreonEvents<State> = any>(...keys: (keyof State)[]): Subscribable<State> & {
+  dispatch: Dispatch<EventsMap>
+}

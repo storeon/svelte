@@ -4,7 +4,7 @@
 
 A tiny connector for [Storeon] and [Svelte]. ([Demo])
 
-Size is only 293 bytes (minified and gzipped). It uses [Size Limit] to control size.
+Size is only 201 bytes (minified and gzipped). It uses [Size Limit] to control size.
 
 Read more about Storeon [article].
 
@@ -12,7 +12,7 @@ Read more about Storeon [article].
 
 [Svelte] is the smallest JS framework, but even so, it contains many built-in features. One of them is a `svelte/store`. But why we need to use a third-party store? `@storeon/svelte` has several advantages compared with the built-in one.
 
-- **Size**. 293 bytes instead of 426 bytes (minified and gzipped).
+- **Size**. 201 bytes instead of 426 bytes (minified and gzipped).
 - **Ecosystem**. Many additional [tools] can be combined with a store.
 - **Fast**. It tracks what parts of state were changed and re-renders only components based on the changes.
 
@@ -24,40 +24,40 @@ Read more about Storeon [article].
 [article]: https://evilmartians.com/chronicles/storeon-redux-in-173-bytes
 
 ## Install
-
-This module includes `storeon` module as a dependency so you don't need to install `storeon` itself:
-
 ```sh
-npm install @storeon/svelte
+npm install -S @storeon/svelte
 ```
-
+or
+```sh
+yarn add @storeon/svelte
+```
 ## How to use
 
-Use `createSvelteStore` from the `@storeon/svelte` package instead of using `createStore` from the `svelte` package. It accepts the same API as `createStore` function (array of modules).
+Create store using `storeon` module:
 
 #### `store.js`
 
 ```javascript
-import { createSvelteStore } from "@storeon/svelte";
+import createStore from 'storeon'
 
 let counter = store => {
-  store.on("@init", () => ({ count: 0 }));
-  store.on("inc", ({ count }) => ({ count: count + 1 }));
-};
+  store.on('@init', () => ({ count: 0 }))
+  store.on('inc', ({ count }) => ({ count: count + 1 }))
+}
 
-export const connect = createSvelteStore([counter]);
+export const store = createStore([counter])
 ```
 
-Using TypeScript you can pass `State` interface to the `createSvelteStore` function:
+Using TypeScript you can pass `State` and `Events` interface to the `createStore` function:
 
 #### `store.ts`
 
 ```typescript
-import { createSvelteStore, Store, StoreonEvents } from "@storeon/svelte";
+import createStore, { Store, StoreonEvents } from 'storeon'
 
 // State structure
 interface State {
-  count: number;
+  count: number
 }
 
 // Events declaration: map of event names to type of event data
@@ -69,26 +69,59 @@ interface Events extends StoreonEvents<State> {
 }
 
 let counter = (store: Store<State>) => {
-  store.on("@init", () => ({ count: 0 }));
-  store.on("inc", ({ count }) => ({ count: count + 1 }));
-  store.on('set', (_, event) => ({ count: event}));
+  store.on("@init", () => ({ count: 0 }))
+  store.on("inc", ({ count }) => ({ count: count + 1 }))
+  store.on('set', (_, event) => ({ count: event}))
 };
 
-export const connect = createSvelteStore<State, Events>([counter]);
+export const store = createStore<State, Events>([counter])
 ```
-
-Import `connect` function from our `./store` and use it for getting state and dispatching new events:
 
 #### `App.svelte`
 
+Provide store to Svelte Context using `setStore` from `@storeon/svelte`
+
 ```html
 <script>
-  import { connect } from "./store.js";
+  import { setStore } from '@storeon/svelte'
+  import { store } from './store'
+  import Counter from './Counter.svelte'
 
-  const count = connect("count");
+  setStore(store)
+</script>
+
+<Counter />
+```
+
+Import `getStore` function from our `@storeon/svelte` module and use it for getting state and dispatching new events:
+
+#### `Child.svelte`
+
+```html
+<script>
+  import { getStore } from "@storeon/svelte";
+
+  const { count, dispatch } = getStore("count");
 
   function increment() {
-    count.dispatch("inc");
+    dispatch("inc");
+  }
+</script>
+
+<h1>The count is {$count}</h1>
+
+<button on:click="{increment}">+</button>
+```
+Using typescript you can pass `State` and `Events` interfaces to `getStore` function to be full type safe
+```html
+<script lang="typescript">
+  import { getStore } from "@storeon/svelte";
+  import { State, Events } from './store'
+
+  const { count, dispatch } = getStore<State, Events>("count");
+
+  function increment() {
+    dispatch("inc");
   }
 </script>
 
@@ -98,14 +131,14 @@ Import `connect` function from our `./store` and use it for getting state and di
 ```
 
 ## Usage with [@storeon/router](https://github.com/storeon/router)
-If you want to use the @storeon/svelte with the [@storeon/router](https://github.com/storeon/router) you should import the `router.createRouter` from [@storeon/router](https://github.com/storeon/router) and add this module to `createSvelteStore` instead of `createStore`
+If you want to use the @storeon/svelte with the `@storeon/router` you should import the `router.createRouter` from `@storeon/router` and add this module to `createStore`
 
 #### `store.js`
 ```js
-import { createSvelteStore } from "@storeon/svelte";
+import createStore from 'storeon'
 import { createRouter } from "@storeon/router";
 
-const connect = createSvelteStore([
+const store = createStore([
   createRouter([
     ['/', () => ({ page: 'home' })],
     ['/blog', () => ({ page: 'blog' })],
@@ -115,12 +148,24 @@ const connect = createSvelteStore([
 
 And use it like:
 #### `App.svelte`
-```svelte
+```html
 <script>
-  import { connect } from "./store.js";
+  import { setStore } from '@storeon/svelte'
+  import { store } from './store'
+  import Counter from './Child.svelte'
+
+  setStore(store)
+</script>
+
+<Counter />
+```
+#### `Child.svelte`
+```html
+<script>
+  import { getStore } from "@storeon/svelte";
   import router from "@storeon/router"
 
-  const moduleRouter = connect(router.key)
+  const moduleRouter = getStore(router.key)
 </script>
 
 You can access the router like default svelte store via $:

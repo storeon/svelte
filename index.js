@@ -1,41 +1,23 @@
-let createStore = require('storeon')
+let { getContext, setContext } = require('svelte')
 
-/**
- * Initialize new store and apply all modules to the store for Svelte app.
- *
- * @param {modules[]} modules Functions which will set initial state
- *                            define reducer and subscribe
- *                            to all system events
- *
- * @return {connect} The store connector.
- *
- * @example
- * import { createSvelteStore } from "@storeon/svelte";
- *
- * let counter = store => {
- *  store.on("@init", () => ({ count: 0 }));
- *  store.on("inc", ({ count }) => ({ count: count + 1 }));
- * };
- * export const connect = createSvelteStore([counter]);
- */
-function createSvelteStore (modules) {
-  let store = createStore(modules)
+const STORE = typeof Symbol !== 'undefined' ? Symbol('storeon') : '@@storeon'
 
-  /**
-   * Hook-like function to use Storeon in Svelte app
-   *
-   * @param {string} key Key of state field
-   *
-   */
-  return function (key) {
-    let subscribers = []
+function setStore (store) {
+  setContext(STORE, store)
+}
 
-    /**
-     * Subscription for the state
-     *
-     * @param {function} run Callback function
-     *
-     */
+function getStore (...keys) {
+  let store = getContext(STORE)
+  if (process.env.NODE_ENV !== 'production' && !store) {
+    throw new Error(
+      'Could not find storeon context value.' +
+      'Please ensure you provide store usin "setStore" function'
+    )
+  }
+
+  let subscribers = []
+
+  function makeSubscribable (key) {
     function subscribe (run) {
       let state = store.get()
 
@@ -49,19 +31,24 @@ function createSvelteStore (modules) {
       }
     }
 
-    store.on('@changed', (_, changed) => {
+    return { subscribe }
+  }
+
+  store.on('@changed', (_, changed) => {
+    keys.forEach(key => {
       if (key in changed) {
         subscribers.forEach(s => {
           s(changed[key])
         })
       }
     })
+  })
 
-    return {
-      subscribe,
-      dispatch: store.dispatch
-    }
-  }
+  let data = { dispatch: store.dispatch }
+  keys.forEach(key => {
+    data[key] = makeSubscribable(key)
+  })
+  return data
 }
 
-module.exports = { createSvelteStore }
+module.exports = { setStore, getStore }

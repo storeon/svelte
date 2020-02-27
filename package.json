@@ -31,11 +31,9 @@
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-svelte": "^4.0.6",
     "size-limit": "^4.0.2",
+    "storeon": "^0.9.8",
     "svelte": "^3.19.1",
     "typescript": "^3.8.2"
-  },
-  "dependencies": {
-    "storeon": "^0.9.8"
   },
   "lint-staged": {
     "*.js": [
@@ -54,14 +52,20 @@
   "size-limit": [
     {
       "path": "index.js",
-      "limit": "293 B"
+      "limit": "201 B",
+      "ignore": [
+        "svelte"
+      ]
     }
   ],
   "eslintConfig": {
-    "extends": "@logux/eslint-config"
+    "extends": "@logux/eslint-config",
+    "rules": {
+      "node/no-unpublished-require": "off",
+      "func-style": "off"
+    }
   },
   "eslintIgnore": [
-    "node_modules",
-    "index.test.js"
+    "node_modules"
   ]
 }
