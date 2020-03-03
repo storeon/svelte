@@ -17,14 +17,14 @@ function getStore (...keys) {
 
   let subscribers = {}
 
-  function makeSubscribable (key) {
-    function subscribe (run) {
+  let makeSubscribable = key => {
+    let subscribe = run => {
       let state = store.get()
 
       subscribers[key] = run
       run(state[key])
 
-      return function () {
+      return () => {
         delete subscribers[key]
       }
     }

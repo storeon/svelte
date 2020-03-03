@@ -1,7 +1,7 @@
 {
   "name": "@storeon/svelte",
   "version": "0.5.0",
-  "description": "A tiny connector for Storeon and Svelte",
+  "description": "A tiny (185 bytes) connector for Storeon and Svelte",
   "main": "index.js",
   "repository": "https://github.com/distolma/storeon-svelte.git",
   "author": "Dmytro Mostovyi <djmakaron2009@gmail.com>",
@@ -52,7 +52,7 @@
   "size-limit": [
     {
       "path": "index.js",
-      "limit": "201 B",
+      "limit": "185 B",
       "ignore": [
         "svelte"
       ]
