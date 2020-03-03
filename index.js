@@ -11,7 +11,7 @@ function getStore (...keys) {
   if (process.env.NODE_ENV !== 'production' && !store) {
     throw new Error(
       'Could not find storeon context value.' +
-      'Please ensure you provide store usin "setStore" function'
+      'Please ensure you provide store using "setStore" function'
     )
   }
 
