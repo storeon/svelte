@@ -2,6 +2,11 @@
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.1
+- Fix error typo ([38a47b](https://github.com/storeon/svelte/commit/38a47b1b03b2c758f9bc7d15e81b6f597f02e9d4))
+- Reduce lib size ([8af38d](https://github.com/storeon/svelte/commit/8af38d4a9d1204278c42af36d8fba108597ed458))
+- Reduce rerender using subscribers map instead of array ([7e77af](https://github.com/storeon/svelte/commit/43e58291d91b40ee105aa51ebc4e5a9d216f71df))
+
 ## 0.5.0
 - change API: smaller, better DX ([7e77af](https://github.com/storeon/svelte/commit/7e77afd3288d684c341fcbe6453e8ff2dd3985fd))
 
