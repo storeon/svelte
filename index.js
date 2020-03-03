@@ -15,19 +15,17 @@ function getStore (...keys) {
     )
   }
 
-  let subscribers = []
+  let subscribers = {}
 
   function makeSubscribable (key) {
     function subscribe (run) {
       let state = store.get()
 
-      subscribers.push(run)
+      subscribers[key] = run
       run(state[key])
 
       return function () {
-        subscribers = subscribers.filter(i => {
-          return i !== run
-        })
+        delete subscribers[key]
       }
     }
 
@@ -36,18 +34,17 @@ function getStore (...keys) {
 
   store.on('@changed', (_, changed) => {
     keys.forEach(key => {
-      if (key in changed) {
-        subscribers.forEach(s => {
-          s(changed[key])
-        })
+      if (changed[key] && subscribers[key]) {
+        subscribers[key](changed[key])
       }
     })
   })
 
-  let data = { dispatch: store.dispatch }
+  let data = { }
   keys.forEach(key => {
     data[key] = makeSubscribable(key)
   })
+  data.dispatch = store.dispatch
   return data
 }
 
