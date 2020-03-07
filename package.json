@@ -33,6 +33,7 @@
     "size-limit": "^4.0.2",
     "storeon": "^0.9.8",
     "svelte": "^3.19.1",
+    "todomvc-app-css": "^2.3.0",
     "typescript": "^3.8.2"
   },
   "lint-staged": {
