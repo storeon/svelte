@@ -11,30 +11,34 @@
     "lint": "eslint ./*.js",
     "test": "jest --coverage && yarn lint && size-limit"
   },
+  "peerDependencies": {
+    "storeon": "^2.0.0",
+    "svelte": "^3.19.0"
+  },
   "devDependencies": {
-    "@logux/eslint-config": "^36.0.0",
-    "@size-limit/preset-small-lib": "^4.0.2",
+    "@logux/eslint-config": "^36.1.1",
+    "@size-limit/preset-small-lib": "^4.3.1",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-es5": "^1.5.0",
     "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jest": "^23.8.0",
+    "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prefer-let": "^1.0.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-unicorn": "^16.1.1",
+    "eslint-plugin-unicorn": "^17.0.1",
     "husky": "^4.2.3",
     "jest": "^25.1.0",
-    "lint-staged": "^10.0.7",
+    "lint-staged": "^10.0.8",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-svelte": "^4.0.6",
-    "size-limit": "^4.0.2",
-    "storeon": "^0.9.8",
-    "svelte": "^3.19.1",
+    "size-limit": "^4.3.1",
+    "storeon": "^2.0.1",
+    "svelte": "^3.19.2",
     "todomvc-app-css": "^2.3.0",
-    "typescript": "^3.8.2"
+    "typescript": "^3.8.3"
   },
   "lint-staged": {
     "*.js": [

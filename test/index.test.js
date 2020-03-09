@@ -1,5 +1,5 @@
 let { getContext, setContext } = require('svelte')
-let createStore = require('storeon')
+let { createStoreon } = require('storeon')
 
 let { getStore, setStore } = require('..')
 
@@ -15,7 +15,7 @@ function setupStore () {
     })
   }
 
-  return createStore([counter])
+  return createStoreon([counter])
 }
 
 function setupContextStore () {
