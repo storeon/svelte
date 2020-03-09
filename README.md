@@ -38,22 +38,22 @@ Create store using `storeon` module:
 #### `store.js`
 
 ```javascript
-import createStore from 'storeon'
+import { createStoreon } from 'storeon'
 
 let counter = store => {
   store.on('@init', () => ({ count: 0 }))
   store.on('inc', ({ count }) => ({ count: count + 1 }))
 }
 
-export const store = createStore([counter])
+export const store = createStoreon([counter])
 ```
 
-Using TypeScript you can pass `State` and `Events` interface to the `createStore` function:
+Using TypeScript you can pass `State` and `Events` interface to the `createStoreon` function:
 
 #### `store.ts`
 
 ```typescript
-import createStore, { Store, StoreonEvents } from 'storeon'
+import { Store, StoreonEvents, createStoreon } from 'storeon'
 
 // State structure
 interface State {
@@ -74,7 +74,7 @@ let counter = (store: Store<State>) => {
   store.on('set', (_, event) => ({ count: event}))
 };
 
-export const store = createStore<State, Events>([counter])
+export const store = createStoreon<State, Events>([counter])
 ```
 
 #### `App.svelte`
@@ -131,14 +131,14 @@ Using typescript you can pass `State` and `Events` interfaces to `getStore` func
 ```
 
 ## Usage with [@storeon/router](https://github.com/storeon/router)
-If you want to use the @storeon/svelte with the `@storeon/router` you should import the `router.createRouter` from `@storeon/router` and add this module to `createStore`
+If you want to use the @storeon/svelte with the `@storeon/router` you should import the `router.createRouter` from `@storeon/router` and add this module to `createStoreon`
 
 #### `store.js`
 ```js
-import createStore from 'storeon'
+import { createStoreon } from 'storeon'
 import { createRouter } from '@storeon/router';
 
-const store = createStore([
+const store = createStoreon([
   createRouter([
     ['/', () => ({ page: 'home' })],
     ['/blog', () => ({ page: 'blog' })],
