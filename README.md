@@ -53,22 +53,18 @@ Using TypeScript you can pass `State` and `Events` interface to the `createStore
 #### `store.ts`
 
 ```typescript
-import { Store, StoreonEvents, createStoreon } from 'storeon'
+import { StoreonModule, createStoreon } from 'storeon'
 
-// State structure
 interface State {
   count: number
 }
 
-// Events declaration: map of event names to type of event data
-interface Events extends StoreonEvents<State> {
-  // `inc` event which do not goes with any data
+interface Events {
   'inc': undefined
-  // `set` event which goes with number as data
   'set': number
 }
 
-let counter = (store: Store<State>) => {
+let counter = (store: StoreonModule<State, Events>) => {
   store.on('@init', () => ({ count: 0 }))
   store.on('inc', ({ count }) => ({ count: count + 1 }))
   store.on('set', (_, event) => ({ count: event}))
