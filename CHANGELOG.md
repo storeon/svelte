@@ -2,6 +2,9 @@
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.2
+- Better typings ([8f8225](https://github.com/storeon/svelte/commit/8f82254e59a0f5dcf3e537c8368f02eece679c48))
+
 ## 0.5.1
 - Fix error typo ([38a47b](https://github.com/storeon/svelte/commit/38a47b1b03b2c758f9bc7d15e81b6f597f02e9d4))
 - Reduce lib size ([8af38d](https://github.com/storeon/svelte/commit/8af38d4a9d1204278c42af36d8fba108597ed458))

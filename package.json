@@ -1,6 +1,6 @@
 {
   "name": "@storeon/svelte",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "A tiny (185 bytes) connector for Storeon and Svelte",
   "main": "index.js",
   "repository": "https://github.com/distolma/storeon-svelte.git",
