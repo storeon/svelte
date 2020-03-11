@@ -11,6 +11,7 @@
     "lint": "eslint ./*.js",
     "test": "jest --coverage && yarn lint && size-limit"
   },
+  "sideEffects": false,
   "peerDependencies": {
     "storeon": "^2.0.0",
     "svelte": "^3.19.0"
