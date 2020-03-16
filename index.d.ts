@@ -10,7 +10,7 @@ type Subscribable<State> = {
   };
 }
 
-export declare function setStore(store: StoreonStore): void
-export declare function getStore<State, Events = any>(...keys: (keyof State)[]): Subscribable<State> & {
+export declare function provideStoreon(store: StoreonStore): void
+export declare function useStoreon<State, Events = any>(...keys: (keyof State)[]): Subscribable<State> & {
   dispatch: StoreonDispatch<Events & createStoreon.DispatchableEvents<State>>
 }

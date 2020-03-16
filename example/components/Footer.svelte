@@ -1,8 +1,8 @@
 <script >
-  import { getStore } from '../..'
+  import { useStoreon } from '../..'
   import { SHOW_ACTIVE, SHOW_ALL, SHOW_COMPLETED } from '../constants/TodoFilters'
 
-  const { dispatch, todos, filter } = getStore('todos', 'filter')
+  const { dispatch, todos, filter } = useStoreon('todos', 'filter')
 
   function handleClearCompleted() {
     dispatch('todo/clear_completed')

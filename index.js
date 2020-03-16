@@ -1,17 +1,17 @@
-let { getContext, setContext } = require('svelte')
+const { getContext, setContext } = require('svelte')
 
 const STORE = typeof Symbol !== 'undefined' ? Symbol('storeon') : '@@storeon'
 
-function setStore (store) {
+function provideStoreon (store) {
   setContext(STORE, store)
 }
 
-function getStore (...keys) {
+function useStoreon (...keys) {
   let store = getContext(STORE)
   if (process.env.NODE_ENV !== 'production' && !store) {
     throw new Error(
       'Could not find storeon context value.' +
-      'Please ensure you provide store using "setStore" function'
+      'Please ensure you provide store using "provideStoreon" function'
     )
   }
 
@@ -48,4 +48,4 @@ function getStore (...keys) {
   return data
 }
 
-module.exports = { setStore, getStore }
+module.exports = { provideStoreon, useStoreon }

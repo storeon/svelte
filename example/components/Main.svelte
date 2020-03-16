@@ -2,9 +2,9 @@
   import Footer from './Footer.svelte'
   import TodoItem from './TodoItem.svelte'
   import { SHOW_ACTIVE, SHOW_ALL, SHOW_COMPLETED } from '../constants/TodoFilters'
-  import { getStore } from '../..'
+  import { useStoreon } from '../..'
 
-  const { dispatch, todos, filter } = getStore('todos', 'filter')
+  const { dispatch, todos, filter } = useStoreon('todos', 'filter')
 
   function handleCompleteAll() {
     dispatch('todo/complete_all')

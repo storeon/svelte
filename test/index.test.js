@@ -1,7 +1,7 @@
 let { getContext, setContext } = require('svelte')
 let { createStoreon } = require('storeon')
 
-let { getStore, setStore } = require('..')
+let { useStoreon, provideStoreon } = require('..')
 
 jest.mock('svelte')
 
@@ -34,14 +34,14 @@ afterEach(() => {
 it('set store to svelte context', () => {
   let store = setupStore()
   setContext.mockImplementationOnce(() => {})
-  setStore(store)
+  provideStoreon(store)
 
   expect(setContext).toHaveBeenCalledWith(expect.anything(), store)
   expect(setContext).toHaveBeenCalledTimes(1)
 })
 
 it('get store from svelte context', () => {
-  let store = getStore()
+  let store = useStoreon()
 
   expect(store).toBeDefined()
   expect(store.dispatch).toBeDefined()
@@ -50,18 +50,18 @@ it('get store from svelte context', () => {
 it('get error if store context not provided', () => {
   getContext.mockRestore()
 
-  expect(() => getStore()).toThrow(Error)
+  expect(() => useStoreon()).toThrow(Error)
 })
 
 it('should start with init value', () => {
-  let { count } = getStore('count')
+  let { count } = useStoreon('count')
 
   count.subscribe(value => expect(value).toBe(0))
 })
 
 it('should be reactive', () => {
   let currentValue
-  let { count, dispatch } = getStore('count')
+  let { count, dispatch } = useStoreon('count')
 
   count.subscribe(value => { currentValue = value })
 
@@ -76,7 +76,7 @@ it('should not emit changes on other dispatches', () => {
   let fooSpyCb = jest.fn()
   let countSpyCb = jest.fn()
 
-  let { foo, count, dispatch } = getStore('foo', 'count')
+  let { foo, count, dispatch } = useStoreon('foo', 'count')
 
   foo.subscribe(fooSpyCb)
   count.subscribe(countSpyCb)
@@ -95,7 +95,7 @@ it('should not emit changes on other dispatches', () => {
 
 it('shoud to be unsubscribed', () => {
   let currentValue
-  let { count, dispatch } = getStore('count')
+  let { count, dispatch } = useStoreon('count')
 
   let unsubscribe = count.subscribe(value => { currentValue = value })
 

@@ -3,9 +3,9 @@
   import Main from './components/Main.svelte'
   import { store } from './store'
   import { SHOW_ACTIVE, SHOW_COMPLETED, SHOW_ALL } from './constants/TodoFilters'
-  import { setStore } from '..'
+  import { provideStoreon } from '..'
 
-  setStore(store)
+  provideStoreon(store)
 
   function updateFilter() {
     if (window.location.hash === '#active') {

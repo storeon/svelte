@@ -1,8 +1,8 @@
 <script >
   import { ENTER } from '../constants/keyCodes'
-  import { getStore } from '../..'
+  import { useStoreon } from '../..'
 
-  const { dispatch } = getStore()
+  const { dispatch } = useStoreon()
 
   function handleKeydown(event) {
     if (event.which === ENTER && event.target.value.trim()) {
