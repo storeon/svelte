@@ -2,6 +2,9 @@
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.0
+- Make API more convinient ([e01d03](https://github.com/storeon/svelte/commit/e01d0312f63be29eb23e1228be4712ed7212d293))
+
 ## 0.5.2
 - Better typings ([8f8225](https://github.com/storeon/svelte/commit/8f82254e59a0f5dcf3e537c8368f02eece679c48))
 
