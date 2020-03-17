@@ -3,7 +3,8 @@
   "version": "0.6.0",
   "description": "A tiny (187 bytes) connector for Storeon and Svelte",
   "main": "index.js",
-  "repository": "https://github.com/distolma/storeon-svelte.git",
+  "types": "index.d.ts",
+  "repository": "https://github.com/storeon/svelte.git",
   "author": "Dmytro Mostovyi <djmakaron2009@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -19,9 +20,9 @@
   "devDependencies": {
     "@logux/eslint-config": "^36.1.1",
     "@size-limit/preset-small-lib": "^4.4.0",
+    "dual-publish": "^0.5.2",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-es5": "^1.5.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-node": "^11.0.0",
@@ -37,7 +38,7 @@
     "parcel-plugin-svelte": "^4.0.6",
     "size-limit": "^4.4.0",
     "storeon": "^2.0.1",
-    "svelte": "^3.20.0",
+    "svelte": "^3.20.1",
     "todomvc-app-css": "^2.3.0",
     "typescript": "^3.8.3"
   },
