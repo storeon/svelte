@@ -1,5 +1,9 @@
 # Storeon Svelte
 
+[![npm version](https://badge.fury.io/js/%40storeon%2Fsvelte.svg)](https://www.npmjs.com/package/@storeon/svelte)
+[![Build Status](https://travis-ci.org/storeon/svelte.svg?branch=master)](https://travis-ci.org/storeon/svelte)
+
+
 <img src="https://storeon.github.io/storeon/logo.svg" align="right" alt="Storeon logo by Anton Lovchikov" width="160" height="142">
 
 A tiny connector for [Storeon] and [Svelte]. ([Demo])
