@@ -16,7 +16,7 @@ Read more about Storeon [article].
 
 [Svelte] is the smallest JS framework, but even so, it contains many built-in features. One of them is a `svelte/store`. But why we need to use a third-party store? `@storeon/svelte` has several advantages compared with the built-in one.
 
-- **Size**. 187 bytes instead of 426 bytes (minified and gzipped).
+- **Size**. 187 bytes (+ Storeon itself) instead of 485 bytes (minified and gzipped).
 - **Ecosystem**. Many additional [tools] can be combined with a store.
 - **Speed**. It tracks what parts of state were changed and re-renders only components based on the changes.
 
