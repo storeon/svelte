@@ -2,6 +2,9 @@
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.1
+- Add ESModules support ([3b4988](https://github.com/storeon/svelte/commit/3b4988d6342b4310827b55239911f4fd984eeace))
+
 ## 0.6.0
 - Make API more convinient ([e01d03](https://github.com/storeon/svelte/commit/e01d0312f63be29eb23e1228be4712ed7212d293))
 
