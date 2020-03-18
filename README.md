@@ -6,19 +6,11 @@
 
 <img src="https://storeon.github.io/storeon/logo.svg" align="right" alt="Storeon logo by Anton Lovchikov" width="160" height="142">
 
-A tiny connector for [Storeon] and [Svelte]. ([Demo])
-
-Size is only 187 bytes (minified and gzipped). It uses [Size Limit] to control size.
-
-Read more about Storeon [article].
-
-## Why?
-
 [Svelte] is the smallest JS framework, but even so, it contains many built-in features. One of them is a `svelte/store`. But why we need to use a third-party store? `@storeon/svelte` has several advantages compared with the built-in one.
 
 - **Size**. 187 bytes (+ Storeon itself) instead of 485 bytes (minified and gzipped).
 - **Ecosystem**. Many additional [tools] can be combined with a store.
-- **Speed**. It tracks what parts of state were changed and re-renders only components based on the changes.
+- **Speed**. Bind components to the changes in the exact store that you need.
 
 [storeon]: https://github.com/storeon/storeon
 [tools]: https://github.com/storeon/storeon#tools
@@ -35,7 +27,7 @@ or
 ```sh
 yarn add @storeon/svelte
 ```
-## How to use
+## How to use ([Demo])
 
 Create store using `storeon` module:
 
