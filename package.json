@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@logux/eslint-config": "^36.1.1",
+    "@size-limit/dual-publish": "^4.4.0",
     "@size-limit/preset-small-lib": "^4.4.0",
     "dual-publish": "^0.5.2",
     "eslint": "^6.8.0",
@@ -58,8 +59,11 @@
   ],
   "size-limit": [
     {
-      "path": "index.js",
-      "limit": "187 B",
+      "name": "core",
+      "import": {
+        "index.js": "{ provideStoreon, useStoreon }"
+      },
+      "limit": "177 B",
       "ignore": [
         "svelte"
       ]

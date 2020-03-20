@@ -1051,6 +1051,13 @@
   dependencies:
     type-detect "4.0.8"
 
+"@size-limit/dual-publish@^4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@size-limit/dual-publish/-/dual-publish-4.4.0.tgz#b57baa3388537b0a6aa268cbbf2b06579d07174f"
+  integrity sha512-9eyjalC37V48pGgVBwDLd+jknJomgLqHWRpF4LyKShHHR+FjkMSMTRGRHQtoXieftML5Dta/n8h4KS7yjFhzzw==
+  dependencies:
+    rimraf "^3.0.2"
+
 "@size-limit/file@4.4.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-4.4.0.tgz#add2c76cdb817b193c621b471570482bcae5a2a2"
