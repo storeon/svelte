@@ -1,6 +1,6 @@
 {
   "name": "@storeon/svelte",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "A tiny (187 bytes) connector for Storeon and Svelte",
   "main": "index.js",
   "types": "index.d.ts",

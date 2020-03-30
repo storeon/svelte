@@ -2,6 +2,9 @@
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.6.2
+- Fix publishing ([deeb73](https://github.com/storeon/svelte/commit/deeb73ab87e7c8498a74e874e5032fa03024deac))
+
 ## 0.6.1
 - Add ESModules support ([3b4988](https://github.com/storeon/svelte/commit/3b4988d6342b4310827b55239911f4fd984eeace))
 
