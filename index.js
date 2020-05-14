@@ -34,7 +34,7 @@ function useStoreon (...keys) {
 
   store.on('@changed', (_, changed) => {
     keys.forEach(key => {
-      if (changed[key] && subscribers[key]) {
+      if (subscribers[key]) {
         subscribers[key](changed[key])
       }
     })
