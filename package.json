@@ -63,7 +63,7 @@
       "import": {
         "index.js": "{ provideStoreon, useStoreon }"
       },
-      "limit": "177 B",
+      "limit": "179 B",
       "ignore": [
         "svelte"
       ]
