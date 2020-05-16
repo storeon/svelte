@@ -8,10 +8,13 @@ jest.mock('svelte')
 function setupStore () {
   function counter (store) {
     store.on('@init', () => {
-      return { count: 0, foo: 'baz' }
+      return { count: 0, foo: 'baz', loading: false }
     })
     store.on('inc', state => {
       return { count: state.count + 1 }
+    })
+    store.on('toggle', state => {
+      return { loading: !state.loading }
     })
   }
 
@@ -93,7 +96,7 @@ it('should not emit changes on other dispatches', () => {
   expect(countSpyCb).toHaveBeenCalledTimes(1)
 })
 
-it('shoud to be unsubscribed', () => {
+it('should to be unsubscribed', () => {
   let currentValue
   let { count, dispatch } = useStoreon('count')
 
@@ -110,4 +113,27 @@ it('shoud to be unsubscribed', () => {
   dispatch('inc')
 
   expect(currentValue).toBe(1)
+})
+
+it('should work with boolean values', () => {
+  let currentValue
+  let { loading, dispatch } = useStoreon('loading')
+
+  let unsubscribe = loading.subscribe(value => { currentValue = value })
+
+  expect(currentValue).toBe(false)
+
+  dispatch('toggle')
+
+  expect(currentValue).toBe(true)
+
+  dispatch('toggle')
+
+  expect(currentValue).toBe(false)
+
+  unsubscribe()
+
+  dispatch('toggle')
+
+  expect(currentValue).toBe(false)
 })
