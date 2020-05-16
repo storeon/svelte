@@ -3,7 +3,7 @@
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.6.3
-- Fix reactivity for boolean state (by [Mayke](https://github.com/maykefreitas)) ([deeb73](https://github.com/storeon/svelte/commit/e6a290580dc1d2d350c611d0e3f6dac30a49625e))
+- Fix reactivity for boolean state (by [Mayke](https://github.com/maykefreitas)) ([e6a290](https://github.com/storeon/svelte/commit/e6a290580dc1d2d350c611d0e3f6dac30a49625e))
 
 ## 0.6.2
 - Fix publishing ([deeb73](https://github.com/storeon/svelte/commit/deeb73ab87e7c8498a74e874e5032fa03024deac))
