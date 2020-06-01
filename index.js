@@ -11,7 +11,7 @@ function useStoreon (...keys) {
   if (process.env.NODE_ENV !== 'production' && !store) {
     throw new Error(
       'Could not find storeon context value.' +
-      'Please ensure you provide store using "provideStoreon" function'
+        'Please ensure you provide store using "provideStoreon" function'
     )
   }
 
@@ -40,7 +40,7 @@ function useStoreon (...keys) {
     })
   })
 
-  let data = { }
+  let data = {}
   keys.forEach(key => {
     data[key] = makeSubscribable(key)
   })
