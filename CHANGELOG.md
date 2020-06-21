@@ -2,6 +2,9 @@
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.0
+- Support for node.js < v10 and storeon < v3 is dropped ([07552](https://github.com/storeon/svelte/commit/07552faead6ef118b29c579a27b668c537a33321))
+
 ## 0.6.3
 - Fix reactivity for boolean state (by [Mayke](https://github.com/maykefreitas)) ([e6a290](https://github.com/storeon/svelte/commit/e6a290580dc1d2d350c611d0e3f6dac30a49625e))
 
