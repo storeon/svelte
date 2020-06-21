@@ -14,7 +14,7 @@
   },
   "sideEffects": false,
   "peerDependencies": {
-    "storeon": "^2.0.0",
+    "storeon": "^3.0.0",
     "svelte": "^3.20.0"
   },
   "devDependencies": {
