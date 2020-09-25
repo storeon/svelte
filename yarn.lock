@@ -9005,9 +9005,9 @@ supports-hyperlinks@^2.0.0:
     supports-color "^7.0.0"
 
 svelte@^3.24.1:
-  version "3.25.1"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.25.1.tgz#218def1243fea5a97af6eb60f5e232315bb57ac4"
-  integrity sha512-IbrVKTmuR0BvDw4ii8/gBNy8REu7nWTRy9uhUz+Yuae5lIjWgSGwKlWtJGC2Vg95s+UnXPqDu0Kk/sUwe0t2GQ==
+  version "3.27.0"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.27.0.tgz#69660e08470f8026ee055f88f98b9a77f243ad13"
+  integrity sha512-yF8+ikXVaLwP32GhGZ6lT69lXBJ1r9KsYq6W5wDCzpPexiWQydLtqV+Bbc6BYTYeUNEW4Zx+BSXIDp/QleGqRw==
 
 svgo@^1.0.0, svgo@^1.3.2:
   version "1.3.2"
