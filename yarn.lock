@@ -8790,9 +8790,9 @@ stealthy-require@^1.1.1:
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
 storeon@^3.0.3:
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/storeon/-/storeon-3.0.7.tgz#b7eef52dcf62d588b9c0084fa3591366fc1de120"
-  integrity sha512-6W4VL+2TA7FV9N+JR9J6gbJqkLwIZhrKWlC0H3G9qb/IW5JhEUvjPcjEL+uxwtLt4tekHzprNSkC8ZK8+tJydw==
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/storeon/-/storeon-3.1.1.tgz#7ecb94e7c546eacaf973e70268e1dd5ace30826c"
+  integrity sha512-rThlNtK0GeOKh2tUgAuh1W9fYeD8I9DKIptdxV0WYUJdMucb4bFUKzfqpimCHOJ2eK+ix86J/UetwoeDx+dpTQ==
 
 stream-browserify@^2.0.1:
   version "2.0.2"
